@@ -1,0 +1,32 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index df45fb9d8..7188081c1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -141,7 +141,11 @@ endif()
+ 
+ if(WIN32)
+ 	set(SHAREDIR ".")
+-	set(BINDIR "bin")
++	if(RUN_IN_PLACE)
++		set(BINDIR "bin")
++	else()
++		set(BINDIR ".")
++	endif()
+ 	set(DOCDIR "doc")
+ 	set(EXAMPLE_CONF_DIR ".")
+ 	set(LOCALEDIR "locale")
+diff --git a/src/porting.cpp b/src/porting.cpp
+index 81e9afa01..f3d417e5b 100644
+--- a/src/porting.cpp
++++ b/src/porting.cpp
+@@ -449,8 +449,8 @@ bool setSystemPaths()
+ 
+ 	std::string exepath(buf);
+ 
+-	// Use ".\bin\.."
+-	path_share = exepath + "\\..";
++	// Use ".\"
++	path_share = exepath;
+ 	if (detectMSVCBuildDir(exepath)) {
+ 		// The msvc build dir schould normaly not be present if properly installed,
+ 		// but its useful for debugging.

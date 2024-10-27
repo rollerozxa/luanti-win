@@ -1,0 +1,13 @@
+diff --git a/util/buildbot/common.sh b/util/buildbot/common.sh
+index 32434abdd..dd09fccc6 100644
+--- a/util/buildbot/common.sh
++++ b/util/buildbot/common.sh
+@@ -54,7 +54,7 @@ find_runtime_dlls () {
+ 	# Try to find runtime DLLs in various paths
+ 	local tmp=$(dirname "$(command -v $compiler)")/..
+ 	runtime_dlls=
+-	for name in lib{clang_rt,c++,unwind,winpthread-}'*'.dll; do
++	for name in lib{c++,unwind}'*'.dll; do
+ 		for dir in $tmp/$triple/{bin,lib}; do
+ 			[ -d "$dir" ] || continue
+ 			local file=$(echo $dir/$name)
