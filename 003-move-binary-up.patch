@@ -1,17 +1,13 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index df45fb9d8..7188081c1 100644
+index df45fb9..66bbc8d 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -141,7 +141,11 @@ endif()
+@@ -141,7 +141,7 @@ endif()
  
  if(WIN32)
  	set(SHAREDIR ".")
 -	set(BINDIR "bin")
-+	if(RUN_IN_PLACE)
-+		set(BINDIR "bin")
-+	else()
-+		set(BINDIR ".")
-+	endif()
++	set(BINDIR ".")
  	set(DOCDIR "doc")
  	set(EXAMPLE_CONF_DIR ".")
  	set(LOCALEDIR "locale")
