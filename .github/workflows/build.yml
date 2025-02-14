@@ -20,7 +20,7 @@ jobs:
         with:
           repository: minetest/minetest
           path: luanti
-          ref: c8b5e3b741390fb98bfa9cdbae56930239ea271a
+          ref: 5.11.0
 
       - name: Install deps
         run: |
